@@ -1,0 +1,91 @@
+version: 2.1
+
+parameters:
+  xcode-version:
+    type: string
+    default: 14.2.0
+  request_id:
+    type: string
+    default: ""
+  execute-workflow-name:
+    type: string
+    default: ""
+  version:
+    type: string
+    default: ""
+  product_name:
+    type: string
+    default: ""
+  archive_url:
+    type: string
+    default: ""
+  checksum:
+    type: string
+    default: ""
+executors:
+  default-executor:
+    macos:
+      xcode: << pipeline.parameters.xcode-version >>
+    working_directory: /Users/distiller/project
+    environment:
+      REQUEST_ID: << pipeline.parameters.request_id >>
+
+#     __   ___   ___ ___  ___ ___   ____  ____   ___    _____
+#    /  ] /   \ |   T   T|   T   T /    T|    \ |   \  / ___/
+#   /  / Y     Y| _   _ || _   _ |Y  o  ||  _  Y|    \(   \_ 
+#  /  /  |  O  ||  \_/  ||  \_/  ||     ||  |  ||  D  Y\__  T
+# /   \_ |     ||   |   ||   |   ||  _  ||  |  ||     |/  \ |
+# \     |l     !|   |   ||   |   ||  |  ||  |  ||     |\    |
+#  \____j \___/ l___j___jl___j___jl__j__jl__j__jl_____j \___j
+commands:
+  config-git-user:
+    steps:
+      - run:
+          name: Configure a git user as buzzvil-client-ci
+          command: |
+            git config --global user.email "buzzvil-client-ci@buzzvil.com"
+            git config --global user.name "CircleCI Job"
+
+#   ____   ___   ____    _____
+#  |    | /   \ |    \  / ___/
+#  l__  |Y     Y|  o  )(   \_ 
+#  __j  ||  O  ||     T \__  T
+# /  |  ||     ||  O  | /  \ |
+# \  `  |l     !|     | \    |
+#  \____j \___/ l_____j  \___j
+jobs:
+  hello:
+    executor: default-executor
+    steps:
+      - run:
+          name: default
+          command: echo 'Hello Buzzvil iOS SDK'
+  update-package:
+    executor: default-executor
+    steps:
+      - checkout
+      - config-git-user
+      - run:
+          name: fastlane
+          command: |
+            ./update << pipeline.parameters.product_name >> << pipeline.parameters.version >> << pipeline.parameters.archive_url >> << pipeline.parameters.checksum >>
+
+#  __    __   ___   ____   __  _  _____  _       ___   __    __  _____
+# |  T__T  T /   \ |    \ |  l/ ]|     || T     /   \ |  T__T  T/ ___/
+# |  |  |  |Y     Y|  D  )|  ' / |   __j| |    Y     Y|  |  |  (   \_ 
+# |  |  |  ||  O  ||    / |    \ |  l_  | l___ |  O  ||  |  |  |\__  T
+# l  `  '  !|     ||    \ |     Y|   _] |     T|     |l  `  '  !/  \ |
+#  \      / l     !|  .  Y|  .  ||  T   |     |l     ! \      / \    |
+#   \_/\_/   \___/ l__j\_jl__j\_jl__j   l_____j \___/   \_/\_/   \___j
+workflows:
+  workflow-default:
+    when:
+      and:
+        - not: << pipeline.parameters.execute-workflow-name >>
+    jobs:
+      - hello
+  workflow-update-package:
+    when:
+      equal: [ workflow-update-package, << pipeline.parameters.execute-workflow-name >> ]
+    jobs:
+      - update-package
