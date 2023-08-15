@@ -25,7 +25,7 @@ let package = Package(
     ),
     .binaryTarget(
       name: "BuzzBoosterSDK",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/8232/BuzzBoosterSDK.zip",
+      url: "https://circleci.com/api/v2/project/gh/Buzzvil/buzzvil-ios-sdk/pipeline",
       checksum: "4b663e5d5d055cfaeff5f02e5187b6adebbe2eadcb7d0815a5dc234be797cffa"
     ),
     .binaryTarget(
