@@ -14,24 +14,23 @@ let package = Package(
       targets: ["BuzzBoosterSDKTarget"]
     ),
   ],
-  dependencies: [
-    .package(
-      url: "https://github.com/Buzzvil/RxSwift.git",
-      from: "6.5.1"
-    )
-  ],
+  dependencies: [],
   targets: [
     .target(
       name: "BuzzBoosterSDKTarget",
       dependencies: [
         .target(name: "BuzzBoosterSDK", condition: .when(platforms: [.iOS])),
-        .product(name: "BuzzRxSwift", package: "BuzzRxSwift", condition: .when(platforms: [.iOS])),
+        .target(name: "BuzzRxSwift", condition: .when(platforms: [.iOS])),
       ],
       path: "Sources/BuzzBoosterSDKWrapper"
     ),
     .binaryTarget(
       name: "BuzzBoosterSDK",
       path: "Sources/BuzzBoosterSDK/BuzzBoosterSDK.xcframework"
+    ),
+    .binaryTarget(
+      name: "BuzzRxSwift",
+      path: "Sources/BuzzRxSwift/BuzzRxSwift.xcframework"
     )
   ],
   swiftLanguageVersions: [
