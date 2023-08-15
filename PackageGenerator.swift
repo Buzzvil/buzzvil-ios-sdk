@@ -45,5 +45,5 @@ let package = Package(
   ]
 )
 """
-
+print(packageDescription)
 try packageDescription.write(to: URL(fileURLWithPath: "./Package.swift"), atomically: true, encoding: .utf8)
