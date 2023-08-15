@@ -19,10 +19,10 @@ let package = Package(
     .target(
       name: "BuzzBoosterSDKTarget",
       dependencies: [
-        .target(name: "BuzzBoosterSDK", condition: .when(platforms: [.iOS])),
-        .target(name: "BuzzRxSwift", condition: .when(platforms: [.iOS])),
+        "BuzzBoosterSDK",
+        "BuzzRxSwift"
       ],
-      path: "Sources/BuzzBoosterSDKWrapper"
+      path: "Sources/BuzzBoosterSDKTarget"
     ),
     .binaryTarget(
       name: "BuzzBoosterSDK",
@@ -31,7 +31,7 @@ let package = Package(
     .binaryTarget(
       name: "BuzzRxSwift",
       path: "Sources/BuzzRxSwift/BuzzRxSwift.xcframework"
-    )
+    ),
   ],
   swiftLanguageVersions: [
     .v5
