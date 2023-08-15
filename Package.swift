@@ -25,7 +25,8 @@ let package = Package(
     ),
     .binaryTarget(
       name: "BuzzBoosterSDK",
-      path: "Sources/BuzzBoosterSDK/BuzzBoosterSDK.xcframework"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/8217/BuzzBoosterSDK.zip",
+      checksum: "937cbdf1dbd6bf6d104e0b8931d7cb5991929132b9935090ff9d6b23d97637c5"
     ),
     .binaryTarget(
       name: "BuzzRxSwift",
