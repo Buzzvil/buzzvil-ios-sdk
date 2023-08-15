@@ -25,8 +25,8 @@ let package = Package(
     ),
     .binaryTarget(
       name: "BuzzBoosterSDK",
-      url: "https://buzzvil.com",
-      checksum: "123123"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/8232/BuzzBoosterSDK.zip",
+      checksum: "4b663e5d5d055cfaeff5f02e5187b6adebbe2eadcb7d0815a5dc234be797cffa"
     ),
     .binaryTarget(
       name: "BuzzRxSwift",
