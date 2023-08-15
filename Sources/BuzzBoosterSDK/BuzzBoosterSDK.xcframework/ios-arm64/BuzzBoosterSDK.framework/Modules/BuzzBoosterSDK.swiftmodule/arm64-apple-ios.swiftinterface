@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BuzzBoosterSDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 @_exported import BuzzBoosterSDK
@@ -78,13 +78,13 @@ extension BuzzBoosterSDK.BBSEventLocalDto {
   @objc deinit
 }
 extension BuzzRxSwift.ObservableType {
-  public func bind<Observer>(to observers: Observer...) -> BuzzRxSwift.Disposable where Observer : BuzzRxSwift.ObserverType, Self.Element == Observer.Element
-  public func bind<Observer>(to observers: Observer...) -> BuzzRxSwift.Disposable where Observer : BuzzRxSwift.ObserverType, Observer.Element == Self.Element?
+  public func bind<Observer>(to observers: Observer...) -> any BuzzRxSwift.Disposable where Observer : BuzzRxSwift.ObserverType, Self.Element == Observer.Element
+  public func bind<Observer>(to observers: Observer...) -> any BuzzRxSwift.Disposable where Observer : BuzzRxSwift.ObserverType, Observer.Element == Self.Element?
   public func bind<Result>(to binder: (Self) -> Result) -> Result
   public func bind<R1, R2>(to binder: (Self) -> (R1) -> R2, curriedArgument: R1) -> R2
-  public func bind<Object>(with object: Object, onNext: @escaping (Object, Self.Element) -> Swift.Void) -> BuzzRxSwift.Disposable where Object : AnyObject
-  public func bind(onNext: @escaping (Self.Element) -> Swift.Void) -> BuzzRxSwift.Disposable
-  public func catchAndNextError(with elementFactory: @escaping (Swift.Error) -> Self.Element) -> BuzzRxSwift.Observable<Self.Element>
+  public func bind<Object>(with object: Object, onNext: @escaping (Object, Self.Element) -> Swift.Void) -> any BuzzRxSwift.Disposable where Object : AnyObject
+  public func bind(onNext: @escaping (Self.Element) -> Swift.Void) -> any BuzzRxSwift.Disposable
+  public func catchAndNextError(with elementFactory: @escaping (any Swift.Error) -> Self.Element) -> BuzzRxSwift.Observable<Self.Element>
 }
 @_inheritsConvenienceInitializers @objc(BBSEventLocalDto) public class BBSEventLocalDto : CoreData.NSManagedObject {
   @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
@@ -198,8 +198,8 @@ public typealias BSTConfigBuilderBlock = (BuzzBoosterSDK.BSTConfigBuilder) -> Sw
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class BuzzBooster : ObjectiveC.NSObject {
-  @objc weak public static var optInMarketingCampaignDelegate: BuzzBoosterSDK.BSTOptInMarketingCampaignDelegate?
-  @objc weak public static var userEventDelegate: BuzzBoosterSDK.BSTUserEventDelegate? {
+  @objc weak public static var optInMarketingCampaignDelegate: (any BuzzBoosterSDK.BSTOptInMarketingCampaignDelegate)?
+  @objc weak public static var userEventDelegate: (any BuzzBoosterSDK.BSTUserEventDelegate)? {
     @objc get
     @objc set(value)
   }
