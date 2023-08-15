@@ -68,7 +68,10 @@ jobs:
       - run:
           name: fastlane
           command: |
-            python ./script/update.py << pipeline.parameters.archive_url >> << pipeline.parameters.checksum >>
+            swift PackageGenerator.swift << pipeline.parameters.archive_url >> << pipeline.parameters.checksum >>
+            git add .
+            git commit -m "Update SDK to << pipeline.parameters.version >>"
+            git push origin $CIRCLE_BRANCH
 
 #  __    __   ___   ____   __  _  _____  _       ___   __    __  _____
 # |  T__T  T /   \ |    \ |  l/ ]|     || T     /   \ |  T__T  T/ ___/

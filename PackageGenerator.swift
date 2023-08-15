@@ -1,3 +1,10 @@
+import Foundation
+
+let arguments = CommandLine.arguments
+let archivedURL = arguments[1]
+let checksum = arguments[2]
+
+let packageDescription = """
 // swift-tools-version: 5.7
 import PackageDescription
 let package = Package(
@@ -25,8 +32,8 @@ let package = Package(
     ),
     .binaryTarget(
       name: "BuzzBoosterSDK",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/8232/BuzzBoosterSDK.zip",
-      checksum: "4b663e5d5d055cfaeff5f02e5187b6adebbe2eadcb7d0815a5dc234be797cffa"
+      url: "\(archivedURL)",
+      checksum: "\(checksum)"
     ),
     .binaryTarget(
       name: "BuzzRxSwift",
@@ -37,3 +44,6 @@ let package = Package(
     .v5
   ]
 )
+"""
+print(packageDescription)
+try packageDescription.write(to: URL(fileURLWithPath: "./Package.swift"), atomically: true, encoding: .utf8)
