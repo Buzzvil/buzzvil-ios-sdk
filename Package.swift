@@ -22,7 +22,6 @@ let package = Package(
     ),
   ],
   dependencies: [
-    .package(url: "https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios", .upToNextMajor(from: "3.23.0")),
     .package(url: "https://github.com/avatye-developer/sdk_adcash_ios", .upToNextMinor(from: "3.4.0")),
     .package(url: "https://github.com/IGAWorksDev/ap-ssp-sdk-ios-spm-objc", .upToNextMinor(from: "2.11.1")),
   ],
@@ -32,10 +31,7 @@ let package = Package(
       dependencies: [
         "BuzzvilSDK",
         "BuzzAdBenefitSDK",
-        "BuzzBoosterSDK",
         "BuzzAvatyeAdCash",
-        "BuzzRxSwift",
-        .product(name: "GoogleInteractiveMediaAds", package: "swift-package-manager-google-interactive-media-ads-ios"),
         .product(name: "AvatyeAdCash", package: "sdk_adcash_ios"),
         .product(name: "AdPopcornSSPSDK", package: "ap-ssp-sdk-ios-spm-objc"),
       ],
@@ -46,36 +42,23 @@ let package = Package(
       dependencies: [
         "BuzzvilSDK",
         "BuzzAdBenefitSDK",
-        "BuzzBoosterSDK",
-        "BuzzRxSwift",
-        .product(name: "GoogleInteractiveMediaAds", package: "swift-package-manager-google-interactive-media-ads-ios"),
       ],
       path: "Sources/BuzzvilSDK-WithoutThirdPartyTarget"
     ),
     .binaryTarget(
       name: "BuzzvilSDK",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60502-78/BuzzvilSDK.zip",
-      checksum: "f6c51b11c22ff21ae94e453507f67e82ed1e363a25abd6dddbd8c7ce370784af"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60601-79/BuzzvilSDK.zip",
+      checksum: "a21466521f9b31645154dfb50e6ef92a28d765712236d80d3ae91ad1d7bb92b6"
     ),
     .binaryTarget(
       name: "BuzzAdBenefitSDK",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60502-78/BuzzAdBenefitSDK.zip",
-      checksum: "5716c410f1a012748b422d3bc28866c62beea3ce320ab625914769fe4237746a"
-    ),
-    .binaryTarget(
-      name: "BuzzBoosterSDK",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60502-78/BuzzBoosterSDK.zip",
-      checksum: "fd0acd0435e92363397e6090509152949811099768f2b034ba919c44e55c5a9a"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60601-79/BuzzAdBenefitSDK.zip",
+      checksum: "e5b7d8f73a847d1c84d6c1d562f0ffcedc5a79c639abfbc8fec413283c216b7e"
     ),
     .binaryTarget(
       name: "BuzzAvatyeAdCash",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60502-78/BuzzAvatyeAdCash.zip",
-      checksum: "9e81abb25ecb619bf3dcc7990b521173136906a84ece2506c7cf823ef8c22e97"
-    ),
-    .binaryTarget(
-      name: "BuzzRxSwift",
-      url: "https://github.com/Buzzvil/RxSwift/releases/download/v7.0.0/BuzzRxSwift.zip",
-      checksum: "772edfb6e77b41f888d4430e46e00d1ec147dc9d26b3f2ce464dbc00d678f963"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60601-79/BuzzAvatyeAdCash.zip",
+      checksum: "1cf7ba2c76f810694f18967b390ab17fc2aef9df9ea60c3820f6e3dd1df80f8c"
     ),
   ],
   swiftLanguageVersions: [
