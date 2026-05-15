@@ -22,7 +22,7 @@ let package = Package(
     ),
   ],
   dependencies: [
-    .package(url: "https://github.com/avatye-developer/sdk_adcash_ios", .upToNextMinor(from: "3.4.0")),
+    .package(url: "https://github.com/avatye-developer/sdk_adcash_ios", .upToNextMinor(from: "3.4.2")),
     .package(url: "https://github.com/IGAWorksDev/ap-ssp-sdk-ios-spm-objc", .upToNextMinor(from: "2.11.1")),
   ],
   targets: [
@@ -47,18 +47,18 @@ let package = Package(
     ),
     .binaryTarget(
       name: "BuzzvilSDK",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60703-102/BuzzvilSDK.zip",
-      checksum: "f25a7f521c9f7042616714c6a94ac8e31e160b60755141aabd0cd2fdd84ae793"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60604-105/BuzzvilSDK.zip",
+      checksum: "5019e173d1cafcef512780697de91b7edba41c64269f0565bf3f60c818ac4ad8"
     ),
     .binaryTarget(
       name: "BuzzAdBenefitSDK",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60703-102/BuzzAdBenefitSDK.zip",
-      checksum: "6cf4cb8ae1214f48cd4de8e18683878ee36822e6c6f39a299fd4e170f9487446"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60604-105/BuzzAdBenefitSDK.zip",
+      checksum: "88f55a6320f08cc8e283b9e7bbd36628ac22ddd3b8f493a759512e05e27bd674"
     ),
     .binaryTarget(
       name: "BuzzAvatyeAdCash",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60703-102/BuzzAvatyeAdCash.zip",
-      checksum: "6a9641811de24d2a552b26c2a83061aa7beae57ea1a35ed7abdd2e23454d236e"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60604-105/BuzzAvatyeAdCash.zip",
+      checksum: "7b3abb84e93c094f3b74892ebf9028175d198b6e20252d07fa42846d597bbe94"
     ),
   ],
   swiftLanguageVersions: [
