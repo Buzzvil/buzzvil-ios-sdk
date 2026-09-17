@@ -47,18 +47,18 @@ let package = Package(
     ),
     .binaryTarget(
       name: "BuzzvilSDK",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60708-115/BuzzvilSDK.zip",
-      checksum: "5d01f5947d6f49a4c4cdaf581560068ba2ce9cfb5a4c893943917a416ded04d9"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60709-130/BuzzvilSDK.zip",
+      checksum: "5b88723cd3b0b4cc2ec6b0d3cf116fd9d234e2c83f7484f930bb54cd372d2bc8"
     ),
     .binaryTarget(
       name: "BuzzAdBenefitSDK",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60708-115/BuzzAdBenefitSDK.zip",
-      checksum: "aa80257fb431f3a0d73de277c01c0a9316563adcca4a049ff2faa4dfb3607d05"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60709-130/BuzzAdBenefitSDK.zip",
+      checksum: "4dd9579d64c9bf563c5bc6f076d8fa4a0dc6fc9e59ba0e6725ebe03d32eb0619"
     ),
     .binaryTarget(
       name: "BuzzAvatyeAdCash",
-      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60708-115/BuzzAvatyeAdCash.zip",
-      checksum: "5b91f83ffb7c2cc432746c6b5f8f992080be2690c9a9545427f7f3adf704be5d"
+      url: "https://storage.googleapis.com/buzzvil-client-app/bab-ios/60709-130/BuzzAvatyeAdCash.zip",
+      checksum: "8613909b686b1bd1b286b3935e0395dc842da0942f432f53950b8b9b6ba281ed"
     ),
   ],
   swiftLanguageVersions: [
